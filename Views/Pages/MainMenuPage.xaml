@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="DemoProjectWPF_Zagidullin_Syacterev_4435.Views.Pages.MainMenuPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:DemoProjectWPF_Zagidullin_Syacterev_4435.ViewModels"
+             xmlns:local="clr-namespace:DemoProjectWPF_Zagidullin_Syacterev_4435.Views.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:MainMenuPageViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="MaxWidth" Value="100"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="InsideButton">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="MinWidth" Value="40"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel LastChildFill="True">
+
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0"
+                        HorizontalAlignment="Center">
+
+                <Button>
+                    <TextBlock Text="Логотип THC"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="Абоненты"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="Управление оборудованием"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="Активы"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="Биллинг"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="Поддержка пользователей"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+                <Button>
+                    <TextBlock Text="CRM"
+                               Style="{StaticResource InsideButton}"/>
+                </Button>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                <Button Content="проф."
+                        Style="{StaticResource RoundButton}"/>
+                <Button Content="?"
+                        Style="{StaticResource RoundButton}"/>
+
+            </StackPanel>
+
+        </Grid>
+
+        <ContentControl Content="{Binding CurrentPage}"
+                        Margin="5">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vm:AbonentsViewModel}">
+                    <local:Abonents/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
+    </DockPanel>
+</UserControl>

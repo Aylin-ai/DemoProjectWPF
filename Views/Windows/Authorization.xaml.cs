@@ -10,15 +10,14 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DemoProjectWPF_Zagidullin_Syacterev_4435.Views.Pages
+namespace DemoProjectWPF_Zagidullin_Syacterev_4435.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для Authorization.xaml
     /// </summary>
-    public partial class Authorization : UserControl
+    public partial class Authorization : Window
     {
         public Authorization()
         {

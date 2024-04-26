@@ -11,8 +11,8 @@
         MinWidth="600" MinHeight="400">
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
-            <DataTemplate DataType="{x:Type vm:AuthorizationViewModel}">
-                <pages:Authorization/>
+            <DataTemplate DataType="{x:Type vm:MainMenuPageViewModel}">
+                <pages:MainMenuPage/>
             </DataTemplate>
         </ContentControl.Resources>
     </ContentControl>
